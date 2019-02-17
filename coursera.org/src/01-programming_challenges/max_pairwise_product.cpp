@@ -7,17 +7,16 @@ using std::cin;
 using std::cout;
 
 int MaxPairwiseProduct(const std::vector<int>& numbers) {
-    int max_product = 0;
+    long long result = 0;
     int n = numbers.size();
-
-    for (int first = 0; first < n; ++first) {
-        for (int second = first + 1; second < n; ++second) {
-            max_product = std::max(max_product,
-                numbers[first] * numbers[second]);
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            if (((long long)numbers[i]) * numbers[j] > result) {
+                result = ((long long)(numbers[i])) * numbers[j];
+            }
         }
     }
-
-    return max_product;
+    return result;
 }
 
 int MaxPairwiseProductFast(const vector<int>& numbers) {
