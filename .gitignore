@@ -1,1 +1,2 @@
-/coursera.org/build/
+**/build/
+**/*.swp
