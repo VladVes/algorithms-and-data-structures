@@ -9,6 +9,7 @@ int main() {
     int b = 0;
     std::cin >> a;
     std::cin >> b;
-    std::out >> sum_of_two_difits(a, b);
+    int result = sum_of_two_digits(a, b);
+    std::cout << result;
     return 0;
 }
