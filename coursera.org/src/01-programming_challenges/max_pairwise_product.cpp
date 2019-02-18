@@ -6,7 +6,8 @@ using std::vector;
 using std::cin;
 using std::cout;
 
-int MaxPairwiseProduct(const std::vector<int>& numbers) {
+long long MaxPairwiseProduct(const std::vector<int>& numbers) {
+	 
     long long result = 0;
     int n = numbers.size();
     for (int i = 0; i < n; ++i) {
@@ -19,7 +20,7 @@ int MaxPairwiseProduct(const std::vector<int>& numbers) {
     return result;
 }
 
-int MaxPairwiseProductFast(const vector<int>& numbers) {
+long long MaxPairwiseProductFast(const vector<int>& numbers) {
     int n = numbers.size();
     
     int max_index1 = -1;
@@ -29,7 +30,7 @@ int MaxPairwiseProductFast(const vector<int>& numbers) {
     
     int max_index2 = -1;
     for (int j = 0; j < n; ++j)
-    	if ((j != max_index1) && ((max_index2 == -1) || (numbers[j] > numbers[max_index2])))
+    	if ((numbers[j] != numbers[max_index1]) && ((max_index2 == -1) || (numbers[j] > numbers[max_index2])))
 	       max_index2 = j;
 
     cout << max_index1 << " " << max_index2 << "\n";
@@ -40,7 +41,7 @@ int MaxPairwiseProductFast(const vector<int>& numbers) {
 
 int main() {
     while (true) {
-        int n = rand() % 100 + 2;
+        int n = rand() % 10 + 2;
         cout << n << "\n";
         vector<int> a;
         for (int i = 0; i < n; ++i) {
