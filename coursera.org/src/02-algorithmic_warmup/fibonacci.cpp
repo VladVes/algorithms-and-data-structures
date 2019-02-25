@@ -28,11 +28,11 @@ int fibonacci_fast(int n) {
     if (n < 2) {
        return n;
     }   
-    vector<int> numbers(10);
+    vector<long long> numbers(n + 1);
     numbers[0] = 0;
     numbers[1] = 1;
     
-    for (int i = 2; i <= n; i++) {
+    for (int i = 2; i <= n; ++i) {
        numbers[i] = numbers[i-1] + numbers[i-2]; 
     }
     return numbers[n];
@@ -49,8 +49,8 @@ int main() {
     int n = 0;
     std::cin >> n;
 
-    std::cout << fibonacci_naive(n) << '\n';
-    test_solution();
+    // std::cout << fibonacci_naive(n) << '\n';
+    // test_solution();
     std::cout << fibonacci_fast(n) << '\n';
     return 0;
 }
