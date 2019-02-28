@@ -20,11 +20,11 @@ int get_fibonacci_last_digit_naive(int n) {
 int get_fibonacci_last_digit_fast(int n) {
     if (n <= 1) return n;
     
-    std::vector<int> numbers(n);
+    std::vector<int> numbers(n+1);
     numbers[0] = 0;
     numbers[1] = 1;
     
-    for (int i = 2; i < n; ++i) {     
+    for (int i = 2; i <= n; ++i) {     
        numbers[i] = (numbers[i-1] + numbers[i-2]) % 10;
     }
 
