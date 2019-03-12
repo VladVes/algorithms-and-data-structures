@@ -15,5 +15,8 @@ To compile use
 ### Notes
 - Three of the most common algorithmic design techniques
   - Greedy algorithms
+    - make a greedy choise
+    - prove that it is a safe move
+    - reduce to a subproblem and solve it
   - Divide and conquer
   - Dinamic programming
