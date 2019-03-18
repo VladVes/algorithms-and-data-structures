@@ -20,8 +20,17 @@ double get_optimal_value(int capacity, vector<int> weights, vector<int> values) 
      sortedIndexes.push_back(currentIndex);     
   }
   int capacityRest = capacity;   
-  for (int  = 0; 
-
+  while (capacityRest > 0) {
+    for (int i = 0; i < size; ++i) {  
+        if (capacityRest >= weights[sortedIndexes[i]]) {
+            capacityRest = capacityRest - weights[sortedIndexes[i]];
+            value = value + values[sortedIndexes[i]];
+        } else {
+            double itemValue = values[sortedIndexes[i]] / weights[sortedIndexes[i]];
+            value = value + itemValue * capacityRest;
+        } 
+     }
+  }
   return value;
 }
 
