@@ -13,11 +13,12 @@ double get_optimal_value(int capacity, vector<int> weights, vector<int> values) 
      for (int j = i; j < size - i; ++j) {
         int currentItemValue = values[j] / weights[j];
         if (itemValue < currentItemValue) { 
-            itemValue = currentItemVlaue; 
+            itemValue = currentItemValue; 
             currentIndex = j;
         }
      }
-     sortedIndexes.push_back(currentIndex);     
+     sortedIndexes.push_back(currentIndex);
+     std::cout << sortedIndexes[i];
   }
   int capacityRest = capacity;   
   while (capacityRest > 0) {
@@ -38,12 +39,14 @@ int main() {
   int n;
   int capacity;
   std::cin >> n >> capacity;
+  std::cout << "ready for calculation!" << n << " " << capacity << std::endl;
   vector<int> values(n);
   vector<int> weights(n);
   for (int i = 0; i < n; i++) {
     std::cin >> values[i] >> weights[i];
+    std::cout << "value: " << values[i] << " weight: " << weights[i] << std::endl;
   }
-
+  std::cout << "data received";
   double optimal_value = get_optimal_value(capacity, weights, values);
 
   std::cout.precision(10);
