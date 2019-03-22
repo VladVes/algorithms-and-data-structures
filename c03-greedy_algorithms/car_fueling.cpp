@@ -9,26 +9,19 @@ using std::max;
 int compute_min_refills(int dist, int tank, vector<int> & stops) {
     int coveredDistance = tank;
     int lastStop = stops.size() - 1;
-    int currentStop = 0;
     int previousStop = 0;
     int stopsNeeded = 0;
-    while (coveredDistance < dist && stopsNeeded != -1) {
-	const bool isLast = currentStop == lastStop;
-	if (coveredDistance < stops[currentStop]) {
-		stopsNeeded = -1;
-		break;
+    for (int i = 0; i <= lastStop && coveredDistance < dist; ++i) {
+	if (coveredDistance >= stops[i]) {
+		previousStop = i;	
+	} else {
+		if (stops[i] - stops[previousStop] > tank) {
+			return -1;
+		}
+		coveredDistance = stops[previousStop] + tank;
+		--i;
+		++stopsNeeded;
 	}	
-	
-	for (int i = currentStop; i <= lastStop; ++i) {
-		if (coveredDistance >= stops[i]) {
-			previousStop = i;	
-		} else {
-			coveredDistance = stops[previousStop] + tank;
-			currentStop = previousStop;
-			++stopsNeeded;
-		}	
-	}
-		
     }
     return stopsNeeded;
 }
