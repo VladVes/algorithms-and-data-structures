@@ -8,20 +8,21 @@ using std::max;
 
 int compute_min_refills(int dist, int tank, vector<int> & stops) {
     int coveredDistance = tank;
+    stops.push_back(dist);
     int lastStop = stops.size() - 1;
     int previousStop = 0;
     int stopsNeeded = 0;
     for (int i = 0; i <= lastStop && coveredDistance < dist; ++i) {
-	if (coveredDistance >= stops[i]) {
-		previousStop = i;	
-	} else {
-		if (stops[i] - stops[previousStop] > tank) {
-			return -1;
-		}
-		coveredDistance = stops[previousStop] + tank;
-		--i;
-		++stopsNeeded;
-	}	
+    if (coveredDistance >= stops[i]) {
+      previousStop = i;
+    } else {
+        if (i == 0 || stops[i] - stops[previousStop] > tank) {
+            return -1;
+        }
+        coveredDistance = stops[previousStop] + tank;
+        --i;
+        ++stopsNeeded;
+    }
     }
     return stopsNeeded;
 }
