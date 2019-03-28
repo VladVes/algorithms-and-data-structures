@@ -13,6 +13,7 @@ To compile C++ code use
 | Last common multiple | [c/c++](https://github.com/VladVes/algorithmsAndDataStructures/tree/master/c02-algorithmic_warmup) | [wikipedia](https://en.wikipedia.org/wiki/Least_common_multiple) |
 | Mony change | [c/c++ (greedy)](https://github.com/VladVes/algorithmsAndDataStructures/blob/master/c03-greedy_algorithms/change.cpp) | [wikipedia](https://en.wikipedia.org/wiki/Greedy_algorithm) |
 | Fractional knapsack | [c/c++ (greedy)](https://github.com/VladVes/algorithmsAndDataStructures/blob/master/c03-greedy_algorithms/fractional_knapsack.cpp) | [wikipedia](https://en.wikipedia.org/wiki/Continuous_knapsack_problem) |
+| Car fueling | [c/c++ (greedy)](https://github.com/VladVes/algorithmsAndDataStructures/blob/master/c03-greedy_algorithms/car_fueling.cpp) | [coursera](https://www.coursera.org/lecture/algorithmic-toolbox/car-fueling-implementation-and-analysis-shwg1) |
 
 ### Notes
 - Three of the most common algorithmic design techniques
