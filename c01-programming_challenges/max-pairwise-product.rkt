@@ -1,10 +1,18 @@
 #lang racket
 
+(define (fill-vector v i)
+  ((define vecLen (vector-length v))
+   (cond 
+     [(<= i (- vecLen 1)) 
+      ((printf "Enter number: ") 
+       (vector-set! v i (string->number (read-line)))
+       (fill-vector v (+ i 1)))]
+     [(> i (- vecLen 1)) (v)]
+     [else v]
+    )
+))
+
 (printf "Enter array length: ")
 (define vecLength (read-line))
 (define vec (make-vector (string->number vecLength)))
-(vector-set! vec 0 5)
-(vector-set! vec 1 4)
-(vector-set! vec 2 3)
-(printf (number->string (vector-ref vec 0)))
-
+(fill-vector vec 0)
