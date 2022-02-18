@@ -1,8 +1,14 @@
 # Algorithms And Data Structures
 
 ## Help
-To compile C++ code use 
+### C++
+To compile code use 
 ```g++ -pipe -O2 -std=c++11 ./path/to/source.cpp -o ./path/to/dest.out```
+
+### Racket
+Run with REPL
+racket <filename.rkt>
+
 
 ## Contents
 | Issue | Solution examples | Description |
