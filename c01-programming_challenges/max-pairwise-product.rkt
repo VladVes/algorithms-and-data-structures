@@ -1,13 +1,15 @@
 #lang racket
 
-(define (fill-vector v i)
-    (define (iter v)
+(define (fill-vector v)
+    (define (put-at-i i)
         (printf "enter number: ")
         (vector-set! v i (string->number (read-line)))
-        (fill-vector v (+ i 1)))
-    (if (<= i (- (vector-length v) 1)) 
-        (iter v)
-        v))
+        (iter (+ i 1)))
+    (define (iter next-i)
+        (if (< next-i (vector-length v)) 
+            (put-at-i next-i)
+            v))
+    (iter 0))
 
 (define (get-biggest-i vec)
     (define (iter next-i biggest-at-i)
@@ -21,21 +23,16 @@
     
 (define (max-pairwise-product vec)
     (define first-max-index (get-biggest-i vec))
-    (printf (number->string (vector-ref vec first-max-index)))
-    ;(printf (number->string first-max-index))
-    (printf " * ")
-    (define lst (if (> (vector-length vec) 1)
-                    (remove (vector-ref vec first-max-index) (vector->list vec))
-                    (vector->list vec)))
-    (define second-vec (list->vector lst)) 
+    (define second-vec 
+        (if (> (vector-length vec) 1)
+            (list->vector
+                (remove (vector-ref vec first-max-index) (vector->list vec)))
+            vec))
     (define second-max-index (get-biggest-i second-vec))
-    (printf (number->string (vector-ref second-vec second-max-index)))
-    ;(printf (number->string second-max-index))
-    (printf " = ")
     (* (vector-ref vec first-max-index) (vector-ref second-vec second-max-index)))
 
 (printf "Enter vector length: ")
-(define vec-len (read-line))
-(define vec (make-vector (string->number vec-len)))
-(fill-vector vec 0)
+(define vec (make-vector (string->number (read-line))))
+(fill-vector vec)
 (max-pairwise-product vec)
+
