@@ -9,10 +9,24 @@
         (iter v)
         v))
 
+(define (get-biggest-i vec next-i biggest-at-i except-i)
+    (define (compare-and-iter n-i b-i)
+        (if (and (not (= n-i except-i)) 
+                 (> (vector-ref vec n-i) (vector-ref vec b-i)))
+            (get-biggest-i vec (+ n-i 1) n-i except-i)
+            (get-biggest-i vec (+ n-i 1) b-i except-i)))
+    (if (= next-i (vector-length vec)) biggest-at-i 
+        (compare-and-iter next-i biggest-at-i)))
+
 (define (max-pairwise-product vec)
-    (define vec-len (vector-length vec))
-    (define first-max-index 1)
-    (define second-max-index 2)
+    (define first-max-index (get-biggest-i vec 0 0 -1))
+    ;(printf (number->string (vector-ref vec first-max-index)))
+    (printf (number->string first-max-index))
+    (printf " * ")
+    (define second-max-index (get-biggest-i vec 0 0 first-max-index))
+    ;(printf (number->string (vector-ref vec second-max-index)))
+    (printf (number->string second-max-index))
+    (printf " = ")
     (* (vector-ref vec first-max-index) (vector-ref vec second-max-index)))
 
 (printf "Enter vector length: ")
