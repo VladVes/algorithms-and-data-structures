@@ -1,4 +1,5 @@
 # Algorithms And Data Structures
+## no LLM used, created by hand coding only
 
 ## Help
 #### C++
